@@ -9,8 +9,31 @@ function chatlog(msg) {
 
 function createPeerConnection(lasticecandidate) {
   configuration = {
-    iceServers: [{
-      urls: "stun:stun.stunprotocol.org"}]};
+    iceServers: iceServers: [
+      {
+        urls: "stun:stun.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80",
+        username: "9ceb7527231e491639116d72",
+        credential: "8540o+dYWCoJEUW0",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80?transport=tcp",
+        username: "9ceb7527231e491639116d72",
+        credential: "8540o+dYWCoJEUW0",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:443",
+        username: "9ceb7527231e491639116d72",
+        credential: "8540o+dYWCoJEUW0",
+      },
+      {
+        urls: "turns:global.relay.metered.ca:443?transport=tcp",
+        username: "9ceb7527231e491639116d72",
+        credential: "8540o+dYWCoJEUW0",
+      },
+  ]};
   try {
     peerConnection = new RTCPeerConnection(configuration);
   } catch(err) {
